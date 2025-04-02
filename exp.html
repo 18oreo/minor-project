@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OpenStreetMap with Leaflet</title>
+  <!-- Include Leaflet CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <style>
+    #map {
+      height: 1000px;
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+  <h1>OpenStreetMap with Leaflet</h1>
+  
+  <div id="map"></div>
+
+  <!-- Include Leaflet JS -->
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <script>
+    // Initialize the map
+    var map = L.map('map').setView([22.5891, 88.2632], 13); // Coordinates for Howrah, India
+ // Latitude, Longitude for the initial position
+
+    // Add OpenStreetMap tile layer
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    }).addTo(map);
+
+    // Add a marker at the initial position
+    L.marker([22.5884, 88.3104]).addTo(map)
+  .bindPopup('Howrah Botanical Garden')
+  .openPopup();
+  </script>
+</body>
+</html>
